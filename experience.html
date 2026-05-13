@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience — Mochammad Farhan</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+    .timeline { position: relative; }
+    .timeline-col-title { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-cyan); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 30px; display: flex; align-items: center; gap: 12px; }
+    .timeline-col-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .timeline-item { position: relative; padding-left: 24px; margin-bottom: 36px; }
+    .timeline-item::before { content: ''; position: absolute; left: 0; top: 8px; bottom: -36px; width: 1px; background: var(--border); }
+    .timeline-item:last-child::before { display: none; }
+    .timeline-dot { position: absolute; left: -5px; top: 6px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent-cyan); border: 2px solid var(--bg-primary); z-index: 2; }
+    .timeline-dot.muted { background: var(--text-muted); }
+    .timeline-period { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.06em; margin-bottom: 6px; }
+    .timeline-role { font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 3px; }
+    .timeline-org { font-size: 0.87rem; color: var(--accent-cyan); margin-bottom: 10px; font-weight: 500; }
+    .timeline-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+    .timeline-desc ul { list-style: none; margin-top: 8px; }
+    .timeline-desc ul li { padding: 3px 0; padding-left: 14px; position: relative; }
+    .timeline-desc ul li::before { content: '›'; position: absolute; left: 0; color: var(--accent-cyan); font-weight: 700; }
+    .timeline-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .badge-current { display: inline-block; font-family: var(--font-mono); font-size: 0.62rem; padding: 2px 8px; border-radius: 100px; background: rgba(34,211,238,0.15); color: var(--accent-cyan); border: 1px solid var(--accent-cyan-border); letter-spacing: 0.06em; vertical-align: middle; margin-left: 8px; }
+    @media (max-width: 768px) { .exp-grid { grid-template-columns: 1fr; gap: 0; } }
+  </style>
+</head>
+<body>
+<div class="page">
+  <section class="section">
+
+    <p class="section-label" data-i18n="exp.label">Background</p>
+    <h1 class="section-title" data-i18n="exp.title">Work <span class="accent">Experience</span></h1>
+    <p class="section-desc" data-i18n="exp.desc">A journey across education, technology, and AI — shaping classrooms and systems alike.</p>
+
+    <div class="exp-grid">
+
+      <!-- TEACHING & ACADEMIC -->
+      <div class="timeline fade-up">
+        <div class="timeline-col-title" data-i18n="exp.col.teaching">Teaching &amp; Academic</div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">2023 — 2024</div>
+          <div class="timeline-role" data-i18n="exp.t1.role">Guest Lecturer <span class="badge-current">Dosen Tamu</span></div>
+          <div class="timeline-org">STBA Technocrat</div>
+          <div class="timeline-desc">
+            <span data-i18n="exp.t1.desc">Delivered lectures covering topics in informatics and technology applications.</span>
+            <div class="timeline-tags"><span class="tag">IT & Technology</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">2023</div>
+          <div class="timeline-role" data-i18n="exp.t2.role">Guest Lecturer <span class="badge-current">Dosen Tamu</span></div>
+          <div class="timeline-org">STMIK Masa Depan — Cabang Balaraja</div>
+          <div class="timeline-desc">
+            <span data-i18n="exp.t2.desc">Contributed as a guest lecturer in informatics-related subjects, sharing industry and research perspectives.</span>
+            <div class="timeline-tags"><span class="tag">Informatics</span><span class="tag">Technology</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">2023</div>
+          <div class="timeline-role" data-i18n="exp.t3.role">Guest Lecturer <span class="badge-current">Dosen Tamu</span></div>
+          <div class="timeline-org">STIE Primagraha — Cabang Balaraja</div>
+          <div class="timeline-desc">
+            <span data-i18n="exp.t3.desc">Provided practical insights on technology and digital systems relevant to business and economics programs.</span>
+            <div class="timeline-tags"><span class="tag">Digital Systems</span><span class="tag">Tech for Business</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">Jul 2024 — Jun 2025</div>
+          <div class="timeline-role" data-i18n="exp.t4.role">Computer Lab Staff</div>
+          <div class="timeline-org">Insan Pratama</div>
+          <div class="timeline-desc">
+            <ul>
+              <li data-i18n="exp.t4.li1">Taught computer fundamentals to students directly</li>
+              <li data-i18n="exp.t4.li2">Handled administrative tasks and computer lab maintenance</li>
+            </ul>
+            <div class="timeline-tags"><span class="tag">Teaching</span><span class="tag">Lab Management</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot muted"></div>
+          <div class="timeline-period">Jul 2019 — Jun 2024</div>
+          <div class="timeline-role" data-i18n="exp.t5.role">Teacher &amp; IT Staff</div>
+          <div class="timeline-org">Aya Sophia Islamic School</div>
+          <div class="timeline-desc">
+            <ul>
+              <li data-i18n="exp.t5.li1">Taught Information Technology across multiple grade levels</li>
+              <li data-i18n="exp.t5.li2">Provided technical support for school IT operations</li>
+              <li data-i18n="exp.t5.li3">Improved classroom effectiveness through technology integration</li>
+              <li data-i18n="exp.t5.li4">Awarded Best Teacher 2022/2023 &amp; 2023/2024</li>
+            </ul>
+            <div class="timeline-tags"><span class="tag">IT Education</span><span class="tag">Tech Integration</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- INDUSTRY -->
+      <div class="timeline fade-up">
+        <div class="timeline-col-title" data-i18n="exp.col.industry">Industry</div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot muted"></div>
+          <div class="timeline-period">Sep 2018 — Jan 2019</div>
+          <div class="timeline-role" data-i18n="exp.i1.role">Marketing Staff</div>
+          <div class="timeline-org">Bank DBS — Development Bank of Singapore</div>
+          <div class="timeline-desc">
+            <ul>
+              <li data-i18n="exp.i1.li1">Offered financial products to prospective clients</li>
+              <li data-i18n="exp.i1.li2">Built strong customer relationships to support sales targets</li>
+            </ul>
+            <div class="timeline-tags"><span class="tag">Finance</span><span class="tag">Customer Relations</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot muted"></div>
+          <div class="timeline-period">Aug 2017 — Jul 2018</div>
+          <div class="timeline-role" data-i18n="exp.i2.role">Domestic Staff</div>
+          <div class="timeline-org">Changkoul Tour &amp; Travel</div>
+          <div class="timeline-desc">
+            <ul>
+              <li data-i18n="exp.i2.li1">Coordinated domestic travel schedules and logistics</li>
+              <li data-i18n="exp.i2.li2">Ensured smooth tour operations and client satisfaction</li>
+            </ul>
+            <div class="timeline-tags"><span class="tag">Operations</span><span class="tag">Scheduling</span></div>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <div class="timeline-col-title" data-i18n="exp.col.community">Community</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">2021 — Present</div>
+          <div class="timeline-role" data-i18n="exp.c1.role">Contributor — Design &amp; Development</div>
+          <div class="timeline-org">Crypto Community</div>
+          <div class="timeline-desc">
+            <ul>
+              <li data-i18n="exp.c1.li1">Contributed to community-based crypto projects</li>
+              <li data-i18n="exp.c1.li2">Designed visual assets and supported community activities</li>
+            </ul>
+            <div class="timeline-tags"><span class="tag">Web3</span><span class="tag">Design</span><span class="tag">Community</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<script src="nav.js"></script>
+<script src="i18n.js"></script>
+<script>
+  injectNav('experience.html');
+  injectFooter();
+  initScrollAnimations();
+</script>
+</body>
+</html>

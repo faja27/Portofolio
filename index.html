@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mochammad Farhan — AI Engineer & Educator</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-blob-1 {
+      width: 500px; height: 500px;
+      background: rgba(34,211,238,0.07);
+      top: -100px; right: -100px;
+    }
+    .hero-blob-2 {
+      width: 350px; height: 350px;
+      background: rgba(129,140,248,0.06);
+      bottom: 0; left: -80px;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 40px 40px;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 24px 60px;
+      align-items: start;
+    }
+
+    .hero-bottom-row {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+
+    /* ─── PHOTO COLUMN ─── */
+    .hero-photo {
+      order: -1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .hero-photo::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 40%;
+      background: radial-gradient(ellipse at center, rgba(34,211,238,0.15) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-photo img {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      max-width: 340px;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top center;
+      mix-blend-mode: luminosity;
+      filter: contrast(1.05) brightness(0.95) drop-shadow(0 0 40px rgba(34,211,238,0.18)) drop-shadow(0 20px 60px rgba(0,0,0,0.6));
+      animation: photoFloat 3s ease-in-out infinite;
+      border-radius: 0;
+      border: none;
+      background: transparent;
+    }
+
+    @keyframes photoFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ─── CARDS ROW (under photo, full width of content) ─── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      width: 100%;
+      grid-column: 1 / -1;
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all var(--transition);
+    }
+
+    .info-card:hover {
+      border-color: var(--accent-cyan-border);
+      background: var(--bg-card-hover);
+    }
+
+    .info-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--accent-cyan-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--accent-cyan);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .info-label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    .info-value {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    /* ─── CONTENT COLUMN ─── */
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 10px;
+    }
+
+    .hero-greeting {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--accent-cyan);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-greeting::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 1px;
+      background: var(--accent-cyan);
+    }
+
+    .hero-name {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .hero-name .hi {
+      color: var(--text-secondary);
+      font-weight: 300;
+      font-size: 0.6em;
+      display: block;
+      letter-spacing: 0;
+    }
+
+    .hero-name .name-cyan { color: var(--accent-cyan); }
+
+    .hero-role {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .hero-role strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .hero-bio {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 620px;
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .hero-bio strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-cyan);
+      color: var(--bg-primary);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: #67e8f9;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-cyan-border);
+      color: var(--accent-cyan);
+      background: var(--accent-cyan-dim);
+      transform: translateY(-2px);
+    }
+
+    /* ─── QUICK STATS ─── */
+    .stats-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 40px 36px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+      transition: all var(--transition);
+    }
+
+    .stat-card:hover {
+      border-color: var(--accent-cyan-border);
+      background: var(--bg-card-hover);
+      transform: translateY(-3px);
+    }
+
+    .stat-number {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    /* ─── INTERESTS ─── */
+    .interests-section {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .interests-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 48px 40px;
+    }
+
+    .interests-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .tags-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag-large {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      color: var(--text-secondary);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 7px 16px;
+      transition: all var(--transition);
+      cursor: default;
+    }
+
+    .tag-large:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan-border);
+      background: var(--accent-cyan-dim);
+    }
+
+    .tag-large:hover .tag-icon {
+      color: var(--accent-cyan);
+    }
+
+    .tag-icon {
+      width: 15px;
+      height: 15px;
+      color: #22d3ee;
+      flex-shrink: 0;
+    }
+
+    /* ─── TYPING CURSOR ─── */
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1em;
+      background: var(--accent-cyan);
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .hero-inner {
+        padding: 40px 20px 30px;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .hero-photo { align-items: center; }
+      .hero-photo img { max-width: 260px; }
+      .info-grid { max-width: 100%; grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .interests-inner { padding: 40px 20px; }
+      .stats-section { padding: 30px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .hero-cta { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="glow-blob hero-blob-1"></div>
+    <div class="glow-blob hero-blob-2"></div>
+
+    <div class="hero-inner">
+
+      <!-- LEFT: Photo only -->
+      <div class="hero-photo fade-up" style="animation-delay:0.05s">
+        <img src="foto-resmi.png" alt="Mochammad Farhan — AI Engineer & Educator" />
+      </div>
+
+      <!-- RIGHT: Text only -->
+      <div class="hero-content">
+        <p class="hero-greeting fade-up" data-i18n="home.greeting">Welcome to my portfolio</p>
+
+        <h1 class="hero-name fade-up" style="animation-delay:0.1s">
+          <span class="hi" data-i18n="home.hi">Hi, I'm</span>
+          Mochammad <span class="name-cyan">Farhan</span>
+        </h1>
+
+        <p class="hero-role fade-up" style="animation-delay:0.15s" data-i18n="home.role">
+          <strong>AI Engineer</strong> &amp; <strong>Educator</strong> · Banten, Indonesia
+        </p>
+
+        <p class="hero-bio fade-up" style="animation-delay:0.2s" data-i18n="home.bio">
+          Passionate about <strong>machine learning, deep learning</strong>, and data science to solve real-world problems.
+          Currently pursuing a Master's degree in <strong>AI/ML</strong> while actively teaching at multiple institutions
+          and building end-to-end ML pipelines that bridge cutting-edge research with practical applications.
+        </p>
+      </div>
+
+      <!-- BOTTOM ROW: Info Cards full width, then CTA -->
+      <div class="hero-bottom-row fade-up" style="animation-delay:0.25s">
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div>
+              <span class="info-label" data-i18n="home.info.location.label">Location</span>
+              <span class="info-value" data-i18n="home.info.location.value">Banten, Indonesia</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+            </div>
+            <div>
+              <span class="info-label" data-i18n="home.info.edu.label">Education</span>
+              <span class="info-value" data-i18n="home.info.edu.value">UNPAM — S2 AI/ML</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+            </div>
+            <div>
+              <span class="info-label" data-i18n="home.info.focus.label">Focus</span>
+              <span class="info-value" data-i18n="home.info.focus.value">AI &amp; Machine Learning</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+            </div>
+            <div>
+              <span class="info-label" data-i18n="home.info.passion.label">Passion</span>
+              <span class="info-value" data-i18n="home.info.passion.value">Data Science</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-cta">
+          <a href="projects.html" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span data-i18n="home.btn.projects">View Projects</span>
+          </a>
+          <a href="experience.html" class="btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span data-i18n="home.btn.experience">My Experience</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- QUICK STATS -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card fade-up">
+        <span class="stat-number">5+</span>
+        <span class="stat-label" data-i18n="home.stat.teaching">Years Teaching</span>
+      </div>
+      <div class="stat-card fade-up">
+        <span class="stat-number">3</span>
+        <span class="stat-label" data-i18n="home.stat.lecturer">Guest Lecturer Roles</span>
+      </div>
+      <div class="stat-card fade-up">
+        <span class="stat-number">6</span>
+        <span class="stat-label" data-i18n="home.stat.certs">Certifications</span>
+      </div>
+      <div class="stat-card fade-up" style="display:none;">
+        <span class="stat-number">1</span>
+        <span class="stat-label" data-i18n="home.stat.pub">Q1 Publication</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERESTS -->
+  <section class="interests-section">
+    <div class="interests-inner">
+      <p class="interests-title fade-up" data-i18n="home.interests.title">Interests &amp; Focus Areas</p>
+      <div class="tags-wrap">
+
+        <span class="tag-large fade-up">
+          <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          Machine Learning
+        </span>
+
+        <span class="tag-large fade-up">
+          <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          Deep Learning
+        </span>
+
+        <span class="tag-large fade-up">
+          <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          NLP &amp; LLMs
+        </span>
+
+        <span class="tag-large fade-up">
+          <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Computer Vision
+        </span>
+
+        <span class="tag-large fade-up">
+          <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Time Series Forecasting
+        </span>
+
+        <span class="tag-large fade-up">
+          <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Data Visualization
+        </span>
+
+        <span class="tag-large fade-up">
+          <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/><path d="M10 6.5h4M17.5 10v4M10 17.5h4M6.5 10v4"/></svg>
+          Seismic Data Analysis
+        </span>
+
+        <span class="tag-large fade-up">
+          <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          MLOps
+        </span>
+
+        <span class="tag-large fade-up">
+          <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v3M11 14v.01"/></svg>
+          AI Research
+        </span>
+
+        <span class="tag-large fade-up">
+          <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"/><path d="M12 8v4l3 3"/></svg>
+          Generative AI
+        </span>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script src="nav.js"></script>
+<script src="i18n.js"></script>
+<script>
+  injectNav('index.html');
+  injectFooter();
+
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), 100 + i * 80);
+  });
+</script>
+</body>
+</html>
