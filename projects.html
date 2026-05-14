@@ -1,244 +1,244 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects — Mochammad Farhan</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .filter-bar { display: flex; gap: 8px; margin-bottom: 36px; flex-wrap: wrap; }
-    .filter-btn { font-family: var(--font-mono); font-size: 0.75rem; padding: 7px 16px; border-radius: 100px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); cursor: pointer; transition: all var(--transition); letter-spacing: 0.04em; }
-    .filter-btn:hover, .filter-btn.active { color: var(--accent-cyan); border-color: var(--accent-cyan-border); background: var(--accent-cyan-dim); }
-    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .project-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all var(--transition); display: flex; flex-direction: column; position: relative; }
-    .project-card:hover { border-color: var(--accent-cyan-border); background: var(--bg-card-hover); transform: translateY(-3px); }
-    .project-card.hidden { display: none; }
-    .star-icon { position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; background: var(--accent-cyan-dim); border: 1px solid var(--accent-cyan-border); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-    .star-icon svg { width: 14px; height: 14px; fill: var(--accent-cyan); }
-    .project-header { height: 120px; background: linear-gradient(135deg, rgba(34,211,238,0.06) 0%, rgba(129,140,248,0.06) 100%); position: relative; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .project-header-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--bg-secondary); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
-    .project-header-icon svg { width: 24px; height: 24px; stroke: var(--accent-cyan); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .project-header-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(34,211,238,0.15) 1px, transparent 1px); background-size: 20px 20px; }
-    .project-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-    .project-status { margin-bottom: 12px; }
-    .project-title { font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; line-height: 1.3; }
-    .project-desc { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 16px; flex: 1; }
-    .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-    .project-links { display: flex; gap: 8px; border-top: 1px solid var(--border); padding-top: 16px; }
-    .project-link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 0.73rem; color: var(--text-secondary); text-decoration: none; padding: 6px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); transition: all var(--transition); letter-spacing: 0.04em; }
-    .project-link:hover { color: var(--accent-cyan); border-color: var(--accent-cyan-border); background: var(--accent-cyan-dim); }
-    .project-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .project-link.live { color: var(--accent-cyan); border-color: var(--accent-cyan-border); background: var(--accent-cyan-dim); }
-    .project-link.no-link { opacity: 0.4; cursor: default; pointer-events: none; }
-    .project-count { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); margin-bottom: 24px; }
-    .project-count span { color: var(--accent-cyan); }
-    @media (max-width: 1200px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
-  </style>
-</head>
-<body>
-<div class="page">
-  <section class="section">
+  <!DOCTYPE html>
+  <html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Mochammad Farhan</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .filter-bar { display: flex; gap: 8px; margin-bottom: 36px; flex-wrap: wrap; }
+      .filter-btn { font-family: var(--font-mono); font-size: 0.75rem; padding: 7px 16px; border-radius: 100px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); cursor: pointer; transition: all var(--transition); letter-spacing: 0.04em; }
+      .filter-btn:hover, .filter-btn.active { color: var(--accent-cyan); border-color: var(--accent-cyan-border); background: var(--accent-cyan-dim); }
+      .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .project-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all var(--transition); display: flex; flex-direction: column; position: relative; }
+      .project-card:hover { border-color: var(--accent-cyan-border); background: var(--bg-card-hover); transform: translateY(-3px); }
+      .project-card.hidden { display: none; }
+      .star-icon { position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; background: var(--accent-cyan-dim); border: 1px solid var(--accent-cyan-border); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+      .star-icon svg { width: 14px; height: 14px; fill: var(--accent-cyan); }
+      .project-header { height: 120px; background: linear-gradient(135deg, rgba(34,211,238,0.06) 0%, rgba(129,140,248,0.06) 100%); position: relative; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+      .project-header-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--bg-secondary); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+      .project-header-icon svg { width: 24px; height: 24px; stroke: var(--accent-cyan); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .project-header-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(34,211,238,0.15) 1px, transparent 1px); background-size: 20px 20px; }
+      .project-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+      .project-status { margin-bottom: 12px; }
+      .project-title { font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; line-height: 1.3; }
+      .project-desc { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 16px; flex: 1; }
+      .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+      .project-links { display: flex; gap: 8px; border-top: 1px solid var(--border); padding-top: 16px; }
+      .project-link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 0.73rem; color: var(--text-secondary); text-decoration: none; padding: 6px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); transition: all var(--transition); letter-spacing: 0.04em; }
+      .project-link:hover { color: var(--accent-cyan); border-color: var(--accent-cyan-border); background: var(--accent-cyan-dim); }
+      .project-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .project-link.live { color: var(--accent-cyan); border-color: var(--accent-cyan-border); background: var(--accent-cyan-dim); }
+      .project-link.no-link { opacity: 0.4; cursor: default; pointer-events: none; }
+      .project-count { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); margin-bottom: 24px; }
+      .project-count span { color: var(--accent-cyan); }
+      @media (max-width: 1200px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+  <div class="page">
+    <section class="section">
 
-    <p class="section-label" data-i18n="proj.label">Portfolio</p>
-    <h1 class="section-title" data-i18n="proj.title">My <span class="accent">Projects</span></h1>
-    <p class="section-desc" data-i18n="proj.desc">A collection of AI/ML systems, data pipelines, and applied research projects.</p>
+      <p class="section-label" data-i18n="proj.label">Portfolio</p>
+      <h1 class="section-title" data-i18n="proj.title">My <span class="accent">Projects</span></h1>
+      <p class="section-desc" data-i18n="proj.desc">A collection of AI/ML systems, data pipelines, and applied research projects.</p>
 
-    <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all" data-i18n="proj.filter.all">All Projects</button>
-      <button class="filter-btn" data-filter="completed" data-i18n="proj.filter.completed">Completed</button>
-      <button class="filter-btn" data-filter="in-progress" data-i18n="proj.filter.inprogress">In Progress</button>
-      <button class="filter-btn" data-filter="python" data-i18n="proj.filter.python">Python</button>
-      <button class="filter-btn" data-filter="typescript" data-i18n="proj.filter.typescript">TypeScript</button>
-    </div>
-
-    <p class="project-count"><span id="count">6</span> <span data-i18n="proj.count.suffix">projects</span></p>
-
-    <div class="projects-grid" id="projects-grid">
-
-      <!-- Seismic Gap Indonesia -->
-      <div class="project-card fade-up" data-status="in-progress" data-tech="python">
-        <div class="project-header">
-          <div class="project-header-dots"></div>
-          <div class="project-header-icon">
-            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <div class="star-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        </div>
-        <div class="project-body">
-          <div class="project-status"><span class="badge badge-amber" data-i18n="proj.status.inprogress">In Progress</span></div>
-          <div class="project-title" data-i18n="proj.seismic.title">Seismic Gap Indonesia</div>
-          <div class="project-desc" data-i18n="proj.seismic.desc">A full reproducible pipeline for spatiotemporal seismic gap analysis along the Indonesian subduction zone using KMeans clustering and LSTM-based forecasting.</div>
-          <div class="project-tech">
-            <span class="tag">Python</span><span class="tag">LSTM</span><span class="tag">KMeans</span><span class="tag">Geospatial</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/faja27/advanced-project/tree/main/seismic-gap-indonesia" target="_blank" class="project-link">
-              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              <span data-i18n="proj.link.code">Code</span>
-            </a>
-          </div>
-        </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all" data-i18n="proj.filter.all">All Projects</button>
+        <button class="filter-btn" data-filter="completed" data-i18n="proj.filter.completed">Completed</button>
+        <button class="filter-btn" data-filter="in-progress" data-i18n="proj.filter.inprogress">In Progress</button>
+        <button class="filter-btn" data-filter="python" data-i18n="proj.filter.python">Python</button>
+        <button class="filter-btn" data-filter="typescript" data-i18n="proj.filter.typescript">TypeScript</button>
       </div>
 
-      <!-- MySQL Learn -->
-      <div class="project-card fade-up" data-status="in-progress" data-tech="typescript">
-        <div class="project-header">
-          <div class="project-header-dots"></div>
-          <div class="project-header-icon">
-            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      <p class="project-count"><span id="count">6</span> <span data-i18n="proj.count.suffix">projects</span></p>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- Seismic Gap Indonesia -->
+        <div class="project-card fade-up" data-status="in-progress" data-tech="python">
+          <div class="project-header">
+            <div class="project-header-dots"></div>
+            <div class="project-header-icon">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="star-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
           </div>
-          <div class="star-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="project-body">
+            <div class="project-status"><span class="badge badge-amber" data-i18n="proj.status.inprogress">In Progress</span></div>
+            <div class="project-title" data-i18n="proj.seismic.title">Seismic Gap Indonesia</div>
+            <div class="project-desc" data-i18n="proj.seismic.desc">A full reproducible pipeline for spatiotemporal seismic gap analysis along the Indonesian subduction zone using KMeans clustering and LSTM-based forecasting.</div>
+            <div class="project-tech">
+              <span class="tag">Python</span><span class="tag">LSTM</span><span class="tag">KMeans</span><span class="tag">Geospatial</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/faja27/advanced-project/tree/main/seismic-gap-indonesia" target="_blank" class="project-link">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span data-i18n="proj.link.code">Code</span>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="project-body">
-          <div class="project-status"><span class="badge badge-amber" data-i18n="proj.status.inprogress">In Progress</span></div>
-          <div class="project-title" data-i18n="proj.mysql.title">MySQL Learn</div>
-          <div class="project-desc" data-i18n="proj.mysql.desc">An interactive platform designed for mastering MySQL, focusing on efficient database management and advanced query optimization.</div>
-          <div class="project-tech">
-            <span class="tag">TypeScript</span><span class="tag">SQL</span><span class="tag">MySQL</span>
+
+        <!-- MySQL Learn -->
+        <div class="project-card fade-up" data-status="in-progress" data-tech="typescript">
+          <div class="project-header">
+            <div class="project-header-dots"></div>
+            <div class="project-header-icon">
+              <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <div class="star-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
           </div>
-          <div class="project-links">
-            <a href="https://github.com/faja27/advanced-project/tree/main/mysql-learn" target="_blank" class="project-link">
-              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              <span data-i18n="proj.link.code">Code</span>
-            </a>
+          <div class="project-body">
+            <div class="project-status"><span class="badge badge-amber" data-i18n="proj.status.inprogress">In Progress</span></div>
+            <div class="project-title" data-i18n="proj.mysql.title">MySQL Learn</div>
+            <div class="project-desc" data-i18n="proj.mysql.desc">An interactive platform designed for mastering MySQL, focusing on efficient database management and advanced query optimization.</div>
+            <div class="project-tech">
+              <span class="tag">TypeScript</span><span class="tag">SQL</span><span class="tag">MySQL</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/faja27/advanced-project/tree/main/mysql-learn" target="_blank" class="project-link">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span data-i18n="proj.link.code">Code</span>
+              </a>
+            </div>
           </div>
         </div>
+
+        <!-- XAUBot -->
+        <div class="project-card fade-up" data-status="completed" data-tech="python">
+          <div class="project-header">
+            <div class="project-header-dots"></div>
+            <div class="project-header-icon">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="star-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          </div>
+          <div class="project-body">
+            <div class="project-status"><span class="badge badge-green" data-i18n="proj.status.completed">Completed</span></div>
+            <div class="project-title" data-i18n="proj.xau.title">XAUBot — Gold Trading Bot</div>
+            <div class="project-desc" data-i18n="proj.xau.desc">An ML/AI-based automated trading bot for XAUUSD (Gold/USD) on MetaTrader 5, combining Range Breakout, EMA trend filter, RSI momentum, and ATR volatility — optimized from 81 combinations over 6 years of data with 72.1% win rate and 2.71 profit factor.</div>
+            <div class="project-tech">
+              <span class="tag">Python</span><span class="tag">Trading</span><span class="tag">XAUUSD</span><span class="tag">MetaTrader5</span><span class="tag">ML Signal</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/faja27/Intermediate-project/tree/main/XAUBot" target="_blank" class="project-link">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span data-i18n="proj.link.code">Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASL Recognition -->
+        <div class="project-card fade-up" data-status="completed" data-tech="python">
+          <div class="project-header">
+            <div class="project-header-dots"></div>
+            <div class="project-header-icon">
+              <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div class="star-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          </div>
+          <div class="project-body">
+            <div class="project-status"><span class="badge badge-green" data-i18n="proj.status.completed">Completed</span></div>
+            <div class="project-title" data-i18n="proj.asl.title">ASL Alphabet Recognition</div>
+            <div class="project-desc" data-i18n="proj.asl.desc">A real-time American Sign Language (ASL) alphabet recognition system using computer vision and deep learning for accessibility applications.</div>
+            <div class="project-tech">
+              <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">CNN</span>
+            </div>
+            <div class="project-links">
+              <span class="project-link no-link">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span data-i18n="proj.link.soon">Coming Soon</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skin Disease Classification -->
+        <div class="project-card fade-up" data-status="in-progress" data-tech="python">
+          <div class="project-header">
+            <div class="project-header-dots"></div>
+            <div class="project-header-icon">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="star-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          </div>
+          <div class="project-body">
+            <div class="project-status"><span class="badge badge-amber" data-i18n="proj.status.inprogress">In Progress</span></div>
+            <div class="project-title" data-i18n="proj.skin.title">Classification of Skin Diseases</div>
+            <div class="project-desc" data-i18n="proj.skin.desc">An image classification system to detect and categorize various types of skin conditions using convolutional neural networks.</div>
+            <div class="project-tech">
+              <span class="tag">Python</span><span class="tag">CNN</span><span class="tag">Image Classification</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/faja27/Intermediate-project/tree/main/Classification%20of%20skin%20diseases" target="_blank" class="project-link">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span data-i18n="proj.link.code">Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Know Your Batik -->
+        <div class="project-card fade-up" data-status="in-progress" data-tech="python">
+          <div class="project-header">
+            <div class="project-header-dots"></div>
+            <div class="project-header-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12c0-2.21 1.79-4 4-4s4 1.79 4 4-1.79 4-4 4-4-1.79-4-4z"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+            </div>
+            <div class="star-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          </div>
+          <div class="project-body">
+            <div class="project-status"><span class="badge badge-amber" data-i18n="proj.status.inprogress">In Progress</span></div>
+            <div class="project-title" data-i18n="proj.batik.title">Know Your Batik</div>
+            <div class="project-desc" data-i18n="proj.batik.desc">CNN-based batik pattern recognition system that classifies 28 Indonesian batik motifs from images, complete with a web interface for upload, prediction, and batik cultural exploration.</div>
+            <div class="project-tech">
+              <span class="tag">Python</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">ResNet50</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">React</span>
+              <span class="tag">scikit-learn</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/faja27/Intermediate-project/tree/main/know-your-batik" target="_blank" class="project-link">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span data-i18n="proj.link.code">Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
+    </section>
+  </div>
+  <script src="nav.js"></script>
+  <script src="i18n.js"></script>
+  <script>
+    injectNav('projects.html');
+    injectFooter();
+    initScrollAnimations();
 
-      <!-- AurumBot -->
-      <div class="project-card fade-up" data-status="completed" data-tech="python">
-        <div class="project-header">
-          <div class="project-header-dots"></div>
-          <div class="project-header-icon">
-            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <div class="star-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        </div>
-        <div class="project-body">
-          <div class="project-status"><span class="badge badge-green" data-i18n="proj.status.completed">Completed</span></div>
-          <div class="project-title" data-i18n="proj.aurum.title">AurumBot — Gold Trading Bot</div>
-          <div class="project-desc" data-i18n="proj.aurum.desc">An automated trading bot specifically designed for the XAUUSD (Gold) instrument, leveraging algorithmic strategies for systematic trade execution.</div>
-          <div class="project-tech">
-            <span class="tag">Python</span><span class="tag">Trading</span><span class="tag">XAUUSD</span><span class="tag">Automation</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/faja27/Intermediate-project/tree/main/AurumBot" target="_blank" class="project-link">
-              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              <span data-i18n="proj.link.code">Code</span>
-            </a>
-          </div>
-        </div>
-      </div>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+    const countEl = document.getElementById('count');
 
-      <!-- ASL Recognition -->
-      <div class="project-card fade-up" data-status="completed" data-tech="python">
-        <div class="project-header">
-          <div class="project-header-dots"></div>
-          <div class="project-header-icon">
-            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          </div>
-          <div class="star-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        </div>
-        <div class="project-body">
-          <div class="project-status"><span class="badge badge-green" data-i18n="proj.status.completed">Completed</span></div>
-          <div class="project-title" data-i18n="proj.asl.title">ASL Alphabet Recognition</div>
-          <div class="project-desc" data-i18n="proj.asl.desc">A real-time American Sign Language (ASL) alphabet recognition system using computer vision and deep learning for accessibility applications.</div>
-          <div class="project-tech">
-            <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">CNN</span>
-          </div>
-          <div class="project-links">
-            <span class="project-link no-link">
-              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              <span data-i18n="proj.link.soon">Coming Soon</span>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Skin Disease Classification -->
-      <div class="project-card fade-up" data-status="in-progress" data-tech="python">
-        <div class="project-header">
-          <div class="project-header-dots"></div>
-          <div class="project-header-icon">
-            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </div>
-          <div class="star-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        </div>
-        <div class="project-body">
-          <div class="project-status"><span class="badge badge-amber" data-i18n="proj.status.inprogress">In Progress</span></div>
-          <div class="project-title" data-i18n="proj.skin.title">Classification of Skin Diseases</div>
-          <div class="project-desc" data-i18n="proj.skin.desc">An image classification system to detect and categorize various types of skin conditions using convolutional neural networks.</div>
-          <div class="project-tech">
-            <span class="tag">Python</span><span class="tag">CNN</span><span class="tag">Image Classification</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/faja27/Intermediate-project/tree/main/Classification%20of%20skin%20diseases" target="_blank" class="project-link">
-              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              <span data-i18n="proj.link.code">Code</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Know Your Batik -->
-      <div class="project-card fade-up" data-status="in-progress" data-tech="python">
-        <div class="project-header">
-          <div class="project-header-dots"></div>
-          <div class="project-header-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12c0-2.21 1.79-4 4-4s4 1.79 4 4-1.79 4-4 4-4-1.79-4-4z"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
-          </div>
-          <div class="star-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        </div>
-        <div class="project-body">
-          <div class="project-status"><span class="badge badge-amber" data-i18n="proj.status.inprogress">In Progress</span></div>
-          <div class="project-title" data-i18n="proj.batik.title">Know Your Batik</div>
-          <div class="project-desc" data-i18n="proj.batik.desc">CNN-based batik pattern recognition system that classifies 28 Indonesian batik motifs from images, complete with a web interface for upload, prediction, and batik cultural exploration.</div>
-          <div class="project-tech">
-            <span class="tag">Python</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">ResNet50</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">React</span>
-            <span class="tag">scikit-learn</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/faja27/Intermediate-project/tree/main/know-your-batik" target="_blank" class="project-link">
-              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              <span data-i18n="proj.link.code">Code</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-</div>
-<script src="nav.js"></script>
-<script src="i18n.js"></script>
-<script>
-  injectNav('projects.html');
-  injectFooter();
-  initScrollAnimations();
-
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.project-card');
-  const countEl = document.getElementById('count');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      let visible = 0;
-      cards.forEach(card => {
-        const show = filter === 'all' || card.dataset.status === filter || card.dataset.tech === filter;
-        card.classList.toggle('hidden', !show);
-        if (show) visible++;
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        let visible = 0;
+        cards.forEach(card => {
+          const show = filter === 'all' || card.dataset.status === filter || card.dataset.tech === filter;
+          card.classList.toggle('hidden', !show);
+          if (show) visible++;
+        });
+        countEl.textContent = visible;
       });
-      countEl.textContent = visible;
     });
-  });
-</script>
-</body>
-</html>
+  </script>
+  </body>
+  </html>
