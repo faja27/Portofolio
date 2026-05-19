@@ -13,7 +13,6 @@ This portfolio showcases my professional background, academic journey, certifica
 - 🎓 Pursuing Master's degree in AI/ML at Universitas Pamulang (UNPAM)
 - 🏫 5+ years of teaching experience in IT & informatics
 - 🤖 Passionate about machine learning, deep learning, and data science
-- 📊 Published researcher in Q1 Elsevier journal (Computers & Geosciences)
 
 ---
 
